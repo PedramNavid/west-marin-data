@@ -15,7 +15,7 @@ export function onRenderBody({ setHeadComponents }, pluginOptions) {
   // only render snippet if write key exists
   if (key) {
     setHeadComponents([
-      <script key="plugin-jitsu" defer src={host} data-key={key}></script>,
+      <script key="plugin-jitsu" defer src={host} data-key={key} data-init-only="false"></ script>,
       <script dangerouslySetInnerHTML={{ __html: snippet }}></script>
     ]);
   }
