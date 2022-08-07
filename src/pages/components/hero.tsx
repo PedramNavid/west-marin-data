@@ -53,8 +53,8 @@ export default function Hero() {
           </Text>
         </Heading>
         <Text color={'gray.500'}>
-          I help startups accelerate their growth by advising by advising on product strategy,
-          marketing, community, and data, with a focus on data companies.
+          I help startups accelerate their growth by advising on product strategy,
+          marketing, community, and data with a focus on data companies.
 
         </Text>
         <Text color={'gray.500'}>
