@@ -1,12 +1,11 @@
-import * as React from "react"
-import type { HeadFC } from "gatsby"
-import { ChakraProvider, Container } from '@chakra-ui/react'
-import Hero from "./components/hero";
-import Feature from "./components/features"
-import Testimonial from "./components/testimonials";
+import { ChakraProvider, Container } from '@chakra-ui/react';
+import type { HeadFC } from "gatsby";
+import * as React from "react";
+import theme from "../theme";
+import Feature from "./components/features";
 import LargeWithAppLinksAndSocial from "./components/footer";
-import theme from "../theme"
-import ContactFormWithSocialButtons from "./components/contact";
+import Hero from "./components/hero";
+import Testimonial from "./components/testimonials";
 
 const IndexPage = () => {
   return (
@@ -28,4 +27,4 @@ const IndexPage = () => {
 
 export default IndexPage
 
-export const Head: HeadFC = () => <title>Home Page</title>
+export const Head: HeadFC = () => <title>West Marin Data LLC</title>

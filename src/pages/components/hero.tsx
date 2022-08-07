@@ -1,21 +1,8 @@
-import * as React from "react"
+import * as React from "react";
 
 import {
-  Container,
-  Stack,
-  Flex,
-  Box,
-  Heading,
-  Text,
-  Button,
-  Image,
-  Icon,
-  IconButton,
-  createIcon,
-  IconProps,
-  useColorModeValue,
+  Box, Button, Flex, Heading, Icon, IconProps, Image, Stack, Text, useColorModeValue
 } from '@chakra-ui/react';
-
 
 
 
@@ -67,6 +54,13 @@ export default function Hero() {
           direction={{ base: 'column', sm: 'row' }}>
           <a href="mailto:info@pedramnavid.com">
             <Button
+              onClick={() => {
+                if (typeof window !== "undefined") {
+                  const w = window as any;
+                  w.jitsu('track', 'Contact Clicked')
+                }
+
+              }}
               rounded={'full'}
               size={'lg'}
               fontWeight={'normal'}

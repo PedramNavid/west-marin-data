@@ -1,18 +1,10 @@
+import * as React from "react";
 import { ReactNode } from 'react';
-import * as React from "react"
 
 import {
-    Box,
-    Container,
-    Stack,
-    SimpleGrid,
-    Text,
-    Link,
-    VisuallyHidden,
-    chakra,
-    useColorModeValue,
+    Box, chakra, Container, Link, SimpleGrid, Stack, Text, useColorModeValue, VisuallyHidden
 } from '@chakra-ui/react';
-import { FaTwitter, FaLinkedin } from 'react-icons/fa';
+import { FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 
 const ListHeader = ({ children }: { children: ReactNode }) => {
@@ -41,18 +33,43 @@ const SocialButton = ({
             cursor={'pointer'}
             as={'a'}
             href={href}
+            onClick={() => {
+                if (typeof window !== "undefined") {
+                    const w = window as any;
+                    w.jitsu('track', 'Social Clicked', { site: { label } })
+                }
+            }}
             display={'inline-flex'}
             alignItems={'center'}
             justifyContent={'center'}
             transition={'background 0.3s ease'}
             _hover={{
                 bg: useColorModeValue('blackAlpha.200', 'whiteAlpha.200'),
-            }}>
+            }
+            }>
             <VisuallyHidden>{label}</VisuallyHidden>
             {children}
-        </chakra.button>
+        </chakra.button >
     );
 };
+
+const TrackedLink = ({ site, href, label }:
+    {
+        site: string;
+        href: string;
+        label: string;
+    }) => {
+    return (
+        <Link onClick={() => {
+            if (typeof window !== "undefined") {
+                const w = window as any;
+                w.jitsu('track', 'Link Clicked', { site: site })
+            }
+        }}
+            href={href}>{label}
+        </Link>
+    )
+}
 
 export default function LargeWithAppLinksAndSocial() {
     return (
@@ -63,13 +80,13 @@ export default function LargeWithAppLinksAndSocial() {
                 <SimpleGrid columns={{ base: 1, sm: 2, md: 4 }} spacing={8}>
                     <Stack align={'flex-start'}>
                         <ListHeader>Resources</ListHeader>
-                        <Link href={'https://pedram.substack.com'}>Pedram's Substack</Link>
+                        <TrackedLink site={'substack'} href={'https://pedram.substack.com'} label={"Pedram's Substack"} />
                     </Stack>
 
                     <Stack align={'flex-start'}>
                         <ListHeader>Social Media</ListHeader>
-                        <Link href={'https://twitter.com/pdrmnvd'}>Twitter</Link>
-                        <Link href={'https://linkedin.com/in/pedramnavid'}>LinkedIn</Link>
+                        <TrackedLink site={'twitter'} href={'https://twitter.com/pdrmnvd'} label={"Twitter"} />
+                        <TrackedLink site={'linkedin'} href={'https://linkedin.com/in/pedramnavid'} label={"LinkedIn"} />
                     </Stack>
 
 
@@ -100,6 +117,6 @@ export default function LargeWithAppLinksAndSocial() {
                     </Stack>
                 </Container>
             </Box>
-        </Box>
+        </Box >
     );
 }

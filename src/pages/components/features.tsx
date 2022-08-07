@@ -1,7 +1,7 @@
+import { Box, Flex, Icon, SimpleGrid, Stack, Text } from '@chakra-ui/react';
+import * as React from "react";
 import { ReactElement } from 'react';
-import { Box, SimpleGrid, Icon, Text, Stack, Flex } from '@chakra-ui/react';
 import { FcComboChart, FcDeployment, FcMindMap } from 'react-icons/fc';
-import * as React from "react"
 
 interface FeatureProps {
   title: string;
