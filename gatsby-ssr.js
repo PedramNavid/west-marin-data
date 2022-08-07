@@ -13,9 +13,9 @@ export function onRenderBody({ setHeadComponents }, pluginOptions) {
   const snippet = `window.jitsu = window.jitsu || (function(){(window.jitsuQ = window.jitsuQ || []).push(arguments);})`
 
   // only render snippet if write key exists
-  if (writeKey) {
+  if (key) {
     setHeadComponents([
-      <script key="plugin-jitsu" defer src={host} data-key={key}></script>,
+      <script key="plugin-jitsu" defer src={host} data-key={key} data-init-only="false"></ script>,
       <script dangerouslySetInnerHTML={{ __html: snippet }}></script>
     ]);
   }
