@@ -8,11 +8,19 @@ const config: GatsbyConfig = {
     siteUrl: `https://westmarindata.com`,
     description: `West Marin Data Consulting by Pedram Navid`
   },
-  // More easily incorporate content into your pages through automatic TypeScript type generation and better GraphQL IntelliSense.
-  // If you use VSCode you can also use the GraphQL plugin
-  // Learn more at: https://gatsby.dev/graphql-typegen
   graphqlTypegen: true,
-  plugins: ["gatsby-plugin-styled-components",
+  plugins: [
+    {
+      resolve: `gatsby-plugin-rudderstack`,
+      options: {
+        prodKey: process.env.RUDDERSTACK_PRODUCTION_WRITE_KEY,
+        devKey: process.env.RUDDERSTACK_DEV_WRITE_KEY,
+        trackPage: true,
+        dataPlaneUrl: 'https://pedramnavilsb.dataplane.rudderstack.com'
+      }
+    },
+
+    "gatsby-plugin-styled-components",
     {
       resolve: '@chakra-ui/gatsby-plugin',
       options: {
