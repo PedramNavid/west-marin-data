@@ -52,12 +52,30 @@ export default function Hero() {
         <Stack
           spacing={{ base: 4, sm: 6 }}
           direction={{ base: 'column', sm: 'row' }}>
+          <a href="https://www.meetupside.com/public/pedram-navid">
+          <Button
+            onClick={() => {
+                if(typeof window !== "undefined") {
+                    const w = window as any;
+                    w.jistu('track', 'Work With Me Clicked')
+                }
+            }}
+            rounded={'full'}
+            size={'lg'}
+            fontWeight={'normal'}
+            px={6}
+              colorScheme={'green'}
+              bg={'brand.primary'}
+              _hover={{ bg: 'red.200' }}>
+              Work With Me
+              </Button></a>
+
           <a href="mailto:info@pedramnavid.com">
             <Button
               onClick={() => {
                 if (typeof window !== "undefined") {
                   const w = window as any;
-                  w.jitsu('track', 'Contact Clicked')
+                  w.jitsu('track', 'Get in Touch')
                 }
 
               }}

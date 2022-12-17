@@ -113,6 +113,9 @@ export default function LargeWithAppLinksAndSocial() {
                         <SocialButton label={'LinkedIn'} href={'https://linkedin.com/in/pedramnavid'}>
                             <FaLinkedin />
                         </SocialButton>
+                        <SocialButton label={'Work With Me'} href={'https://www.meetupside.com/public/pedram-navid'}>
+                            <FaLinkedin />
+                        </SocialButton>
 
                     </Stack>
                 </Container>
