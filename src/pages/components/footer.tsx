@@ -81,6 +81,7 @@ export default function LargeWithAppLinksAndSocial() {
                     <Stack align={'flex-start'}>
                         <ListHeader>Resources</ListHeader>
                         <TrackedLink site={'substack'} href={'https://pedram.substack.com'} label={"Pedram's Substack"} />
+                        <TrackedLink site={'calendar'} href={'https://app.reclaim.ai/m/pedramnavid'} label={"Book Time with Me"} />
                     </Stack>
 
                     <Stack align={'flex-start'}>
